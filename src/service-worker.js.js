@@ -1,7 +1,7 @@
 const cacheName = "covid19-pwa-rafaelcami";
 const filesToCache = ["/"];
 
-self.addEventListener("install", function(event) {
+this.self.addEventListener("install", function(event) {
   // Perform install steps
   console.log("[Servicework] Install");
   event.waitUntil(
@@ -12,7 +12,7 @@ self.addEventListener("install", function(event) {
   );
 });
 
-self.addEventListener("activate", function(event) {
+this.self.addEventListener("activate", function(event) {
   console.log("[Servicework] Activate");
   event.waitUntil(
     caches.keys().then(function(keyList) {
@@ -26,7 +26,7 @@ self.addEventListener("activate", function(event) {
   );
 });
 
-self.addEventListener("fetch", (event) => {
+this.self.addEventListener("fetch", (event) => {
   console.log("[ServiceWorker] Fetch");
   event.respondWith(
     caches.match(event.request).then(function(response) {
@@ -37,7 +37,7 @@ self.addEventListener("fetch", (event) => {
 });
 
 // Cache and return requests
-self.addEventListener('fetch', event => {
+this.self.addEventListener('fetch', event => {
   event.respondWith(
     caches.match(event.request)
       .then(function(response) {
@@ -51,7 +51,7 @@ self.addEventListener('fetch', event => {
 });
 
 // Update a service worker
-self.addEventListener('activate', event => {
+this.self.addEventListener('activate', event => {
   var cacheWhitelist = ['pwa-task-manager'];
   event.waitUntil(
     caches.keys().then(cacheNames => {
