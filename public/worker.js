@@ -1,5 +1,5 @@
 var CACHE_NAME = 'covid19-pwa-rafaelcami';
-var urlsToCache = [
+let urlsToCache = [
   '/'
 ];
 
