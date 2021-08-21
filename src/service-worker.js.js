@@ -1,5 +1,5 @@
 const cacheName = "covid19-pwa-rafaelcami";
-const filesToCache = ["index.html"];
+const filesToCache = ["/"];
 
 self.addEventListener("install", function(event) {
   // Perform install steps
